@@ -1,0 +1,41 @@
+<header>
+    <link href="main_styles.css" rel="stylesheet">
+    <script src="handlers.js"></script>
+</header>
+
+<body>
+    <div class="content">
+        <table id="main_table">
+            <tbody>
+            <tr>
+                <td>Id</td>
+                <td>Name</td>
+                <td>Description</td>
+                <td>Type</td>
+                <td>Value</td>
+            </tr>
+            <? if (table) { ?>
+                <? table.forEach(function(row){ ?>
+                    <? if (row) { ?><tr>
+                        <td><input value="<?= row.Id[0] ?>"></td>
+                        <td><input value="<?= row.Name[0] ?>"></td>
+                        <td><input value="<?= row.Description[0] ?>"></td>
+                        <td><select>
+                                <option <?= (row.Type[0] == "System.String" ? "selected" : "") ?>>System.String</option>
+                                <option <?= (row.Type[0] == "System.Int32" ? "selected" : "") ?>>System.Int32</option>
+                                <option <?= (row.Type[0] == "System.Boolean" ? "selected" : "") ?>>System.Boolean</option>
+                            </select></td>
+                        <td><input class="valueColumn" type="<?= row.Type[0] == "System.Boolean" ? "checkbox" : "text" ?>"
+                            <?= (row.Type[0] == "System.Boolean" && row.Value[0].toLowerCase() == "true" ? "checked" : "value=" + row.Value[0] ) ?>></td>
+                        <td><button class="remove_row">delete</button></td>
+                    </tr>
+                    <? } ?>
+                <? }) ?>
+            <? } ?>
+            </tbody>
+        </table>
+
+        <button id="add_record" class="nice_button nice_animation">Add record</button>
+        <button id="saveFile" class="nice_button nice_animation">Save records</button>
+    </div>
+</body>

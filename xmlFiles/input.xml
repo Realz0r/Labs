@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Parameters>
+	<Parameter>
+		<Id></Id>
+		<Name>sdasdasda</Name>
+		<Description>dsadassda</Description>
+		<Type>System.Boolean</Type>
+		<Value>true</Value>
+	</Parameter>
+	<Parameter>
+		<Id>sdasdasda</Id>
+		<Name>sda</Name>
+		<Description>sdasdasda</Description>
+		<Type>System.String</Type>
+		<Value></Value>
+	</Parameter>
+	<Parameter>
+		<Id></Id>
+		<Name>fsdasda</Name>
+		<Description></Description>
+		<Type>System.String</Type>
+		<Value>sdasda</Value>
+	</Parameter>
+	<Parameter>
+		<Id>sdasda</Id>
+		<Name></Name>
+		<Description>sdasdaasdsdadsasdasdasdasdadsa</Description>
+		<Type>System.Int32</Type>
+		<Value>-4565</Value>
+	</Parameter>
+	<Parameter>
+		<Id>sdasda</Id>
+		<Name>sdasda</Name>
+		<Description></Description>
+		<Type>System.String</Type>
+		<Value></Value>
+	</Parameter>
+	<Parameter>
+		<Id></Id>
+		<Name></Name>
+		<Description></Description>
+		<Type>System.String</Type>
+		<Value></Value>
+	</Parameter>
+</Parameters>
