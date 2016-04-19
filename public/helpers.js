@@ -79,7 +79,7 @@ helpers.changeIntegerValue = function(e) {
         allTextaAlocated = !(this.value.length - this.selectionStart - this.selectionEnd);
 
     if (isNaN(character) ||
-        (!this.value.length || allTextaAlocated || this.value.length == 1 && this.value[0] == "-") && character == "0" ||
+        (this.value.length == 1 && this.value[0] == "-") && character == "0" ||
         character==" ") {
 
         if (allTextaAlocated && character == "-") {
@@ -92,17 +92,19 @@ helpers.changeIntegerValue = function(e) {
 
 helpers.toggleHandlersValueItem = function(item) {
     if (helpers.getTypeValue(item) == "System.Int32") {
-        item.addEventListener('keyup', helpers.validationInt);
+        item.addEventListener('keyup', helpers.parseInt);
         item.onkeypress = helpers.changeIntegerValue;
         item.onselectstart = function() {
             return false;
         };
-        item.onpaste = function() {
-            return false;
+        item.onpaste = function(data) {
+            if (isNaN(+data.clipboardData.getData('text/plain'))) {
+                return false;
+            }
         }
     }
     else {
-        item.removeEventListener('keyup', helpers.validationInt);
+        item.removeEventListener('keyup', helpers.parseInt);
         item.onkeypress = null;
         item.onselectstart = null;
         item.onpaste = null;
@@ -183,13 +185,13 @@ helpers.refreshErors = function() {
     });
 };
 
-helpers.validationInt = function() {
-    if (this.value[0] == '0') {
-        this.value = this.value.slice(1);
+helpers.parseInt = function(e) {
+    if (!this.value.match(/^-?[1-9]\d+$/)) {
+        this.classList.add("incorrect_value");
     }
 
-    if (this.value[1] == '-') {
-        this.value = this.value[0] + this.value.splice(2);
+    if (helpers.checkingOtherIncorrectValue(helpers.getTypeValue(this))) {
+        helpers.errorWindows[helpers.getTypeValue(this)].classList.add('actualBackground');
     }
 };
 
