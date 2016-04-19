@@ -1,6 +1,7 @@
 <header>
     <link href="main_styles.css" rel="stylesheet">
-    <script src="handlers.js"></script>
+    <script type="text/javascript" src="helpers.js"></script>
+    <script type="text/javascript" src="handlers.js"></script>
 </header>
 
 <body>
@@ -34,8 +35,12 @@
             <? } ?>
             </tbody>
         </table>
-
         <button id="add_record" class="nice_button nice_animation">Add record</button>
         <button id="saveFile" class="nice_button nice_animation">Save records</button>
+        <div id="errors">
+            <div id="errorInt" class="eror nice_animation">Int field between -255 to 255</div>
+            <div id="errorString" class="eror nice_animation">Incorrect value for string, max 10 symbol</div>
+            <div id="errorBoolean" class="eror nice_animation">Need at least one active checkbox</div>
+        </div>
     </div>
 </body>

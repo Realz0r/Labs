@@ -5,7 +5,7 @@ var
     server = new http.Server().listen(1337, '127.0.0.1'),
     parseString = require('xml2js').parseString,
     js2xmlparser = require("js2xmlparser"),
-    arrayOfDependencies = ['/main_styles.css', '/handlers.js'],
+    arrayOfDependencies = ['/main_styles.css', '/handlers.js', '/helpers.js'],
     actualWebPage;
 
 renderWebPage();
